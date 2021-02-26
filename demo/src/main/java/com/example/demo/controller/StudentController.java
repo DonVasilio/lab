@@ -46,8 +46,7 @@ public class StudentController {
 
     @PostMapping("/student/update")
     public String updateStudent(@RequestBody Student student){
-        studentJdbc.deleteStudent(student.getId());
-        studentJdbc.createStudent(student.getId(), student.getSurname(), student.getName(), student.getSecond_name(), student.getStudy_group_id());
+        studentJdbc.updateStudent(student);
         return "Выполнено";
     }
 }

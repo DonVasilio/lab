@@ -2,9 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Journal;
 import com.example.demo.dao.JournalJdbc;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,9 +38,9 @@ public class JournalController {
         return journals;
     }
 
-    @GetMapping("/journal/update/{id}/{value}")
-    public String updateJournal(@PathVariable int id, @PathVariable int value){
-        journalJdbc.updateJournal(id,value);
+    @PostMapping("/journal/update")
+    public String updateJournal(@RequestBody Journal journal){
+        journalJdbc.updateJournal(journal.getId(),journal.getMark_id());
         return "Выполнено";
     }
 }

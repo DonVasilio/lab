@@ -2,10 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dao.GroupJdbc;
 import com.example.demo.model.Group;
-import com.example.demo.model.Student;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,9 +26,9 @@ public class GroupController {
         return groups;
     }
 
-    @GetMapping("/group/insert/{id}/{name}")
-    public String createGroup(@PathVariable int id,@PathVariable String name){
-        groupJdbc.createGroup(id, name);
+    @PostMapping("/group/insert")
+    public String createGroup(@RequestBody Group group){
+        groupJdbc.createGroup(group.getId(), group.getName());
         return "Выполнено";
     }
 
@@ -41,9 +38,9 @@ public class GroupController {
         return "Выполнено";
     }
 
-    @GetMapping("/group/update/{id}/{value}")
-    public String updateGroup(@PathVariable int id, @PathVariable String value){
-        groupJdbc.updateGroup(id, value);
+    @PostMapping("/group/update")
+    public String updateGroup(@RequestBody Group group){
+        groupJdbc.updateGroup(group.getId(), group.getName());
         return "Выполнено";
     }
 }

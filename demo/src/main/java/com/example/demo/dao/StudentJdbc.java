@@ -42,22 +42,9 @@ public class StudentJdbc {
         jdbcTemplate.update("DELETE FROM STUDENT WHERE ID = ?", id);
     }
 
-    public void updateStudent(int id, String option, String value)
+    public void updateStudent(Student value)
     {
-        switch (option){
-            case "surname":
-                jdbcTemplate.update("UPDATE STUDENT SET SURNAME = ? Where ID = ?;", value, id);
-                break;
-            case "name":
-                jdbcTemplate.update("UPDATE STUDENT SET NAME = ? Where ID = ?;", value, id);
-                break;
-            case "second_name":
-                jdbcTemplate.update("UPDATE STUDENT SET SECOND_NAME = ? Where ID = ?;", value, id);
-                break;
-            case "study_group":
-                jdbcTemplate.update("UPDATE STUDENT SET STUDY_GROUP_ID = ? Where ID = ?;", value, id);
-                break;
-        }
+        jdbcTemplate.update("UPDATE STUDENT SET SURNAME = ?, NAME = ?, SECOND_NAME = ?, STUDY_GROUP_ID = ? Where ID = ?;", value.getSurname(), value.getName(), value.getSecond_name(), value.getStudy_group_id(), value.getId());
     }
 
     private Student mapStudent(ResultSet rs, int i) throws SQLException {
