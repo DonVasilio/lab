@@ -44,4 +44,11 @@ public class JournalController {
         journalJdbc.updateJournal(journal.getId(),journal.getMark_id());
         return "Выполнено";
     }
+
+    @GetMapping("/journal/whole")
+    public List<?> getWhole()
+    {
+        List<?> whole = journalJdbc.getWhole();
+        return whole;
+    }
 }

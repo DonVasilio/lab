@@ -9,13 +9,21 @@ class App extends Component {
     super();
     this.state = {
       activeGroup: 1,
-      students: null
+      students: null,
+      subjectType:null,
+      wholeJournal:null
     };
   }
 
   componentDidMount() {
     Request.getStudentsOnGroup(this.state.activeGroup).then((students) => {
       this.setState({students: students});
+    });
+    Request.getTypeAndGroup().then((subjectType) => {
+      this.setState({subjectType: subjectType});
+    });
+    Request.getWholeJournal().then((wholeJournal) => {
+      this.setState({wholeJournal: wholeJournal});
     });
   }
 
@@ -42,6 +50,13 @@ class App extends Component {
               this.setState({activeGroup: 3});
             });
           }}>Группа 3</button>
+
+          {this.state.subjectType ? <JournalForTypeAndSubject
+              subjectType={this.state.subjectType}/> : null}
+
+          {this.state.wholeJournal ? <WholeJournal
+              wholeJournal={this.state.wholeJournal}/> : null}
+
         </div>
     );
   }
@@ -67,6 +82,60 @@ class JournalTable extends Component {
           <td>{student.surname}</td>
           <td>{student.second_name}</td>
           <td>{student.study_group_id}</td>
+        </tr>
+      })}
+      </tbody>
+    </Table>
+  }
+}
+
+class JournalForTypeAndSubject extends Component {
+  render() {
+    return <Table bordered>
+      <thead>
+      <tr>
+        <th>Предмет</th>
+        <th>Тип</th>
+      </tr>
+      </thead>
+      <tbody>
+      {this.props.subjectType.map((subjectType) => {
+        return <tr>
+          <td>{subjectType.subject}</td>
+          <td>{subjectType.type}</td>
+        </tr>
+      })}
+      </tbody>
+    </Table>
+  }
+}
+
+class WholeJournal extends Component {
+  render() {
+    return <Table bordered>
+      <thead>
+      <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Группа</th>
+        <th>Количество пересдач</th>
+        <th>Оценка</th>
+        <th>Предмет</th>
+        <th>Тип зачета</th>
+      </tr>
+      </thead>
+      <tbody>
+      {this.props.wholeJournal.map((wholeJournal) => {
+        return <tr>
+          <td>{wholeJournal.id}</td>
+          <td>{wholeJournal.name}</td>
+          <td>{wholeJournal.surname}</td>
+          <td>{wholeJournal.second_name}</td>
+          <td>{wholeJournal.study_group_id}</td>
+          <th>{wholeJournal.study_group_id}</th>
+          <th>{wholeJournal.study_group_id}</th>
+          <th>{wholeJournal.study_group_id}</th>
         </tr>
       })}
       </tbody>
