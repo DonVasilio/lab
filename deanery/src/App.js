@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Navbar, Nav, Dropdown, Tabs, Table, Tab } from "react-bootstrap";
 import {Component} from "react";
 import Request from "./Services/Request"
+import 'color'
 
 class App extends Component {
   constructor() {
@@ -128,14 +129,14 @@ class WholeJournal extends Component {
       <tbody>
       {this.props.wholeJournal.map((wholeJournal) => {
         return <tr>
-          <td>{wholeJournal.id}</td>
-          <td>{wholeJournal.name}</td>
-          <td>{wholeJournal.surname}</td>
-          <td>{wholeJournal.second_name}</td>
-          <td>{wholeJournal.study_group_id}</td>
-          <th>{wholeJournal.study_group_id}</th>
-          <th>{wholeJournal.study_group_id}</th>
-          <th>{wholeJournal.study_group_id}</th>
+          <td>{wholeJournal.SURNAME}</td>
+          <td>{wholeJournal.NAME}</td>
+          <td>{wholeJournal.SECOND_NAME}</td>
+          <td>{wholeJournal.GR}</td>
+          <td>{wholeJournal.COUNT}</td>
+          <td style={{color: wholeJournal.MARK!="Неудовлетворительно" ? "black" : "red"}}>{wholeJournal.MARK}</td>
+          <td>{wholeJournal.SUBJECT}</td>
+          <td>{wholeJournal.TYPE}</td>
         </tr>
       })}
       </tbody>

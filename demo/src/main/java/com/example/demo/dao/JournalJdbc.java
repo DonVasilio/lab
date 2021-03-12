@@ -33,13 +33,13 @@ public class JournalJdbc {
     }
 
     public List<?> getWhole(){
-        return jdbcTemplate.query("select S.SURNAME, S.NAME, S.SECOND_NAME, J.COUNT, M2.NAME, SG.NAME, S2.NAME, ET.TYPE from JOURNAL J\n" +
-                "    inner join STUDENT S on S.ID = J.STUDENT_ID\n" +
-                "    inner join STUDY_PLAN SP on SP.ID = J.STUDY_PLAN_ID\n" +
-                "    inner join EXAM_TYPE ET on ET.ID = SP.EXAM_TYPE_ID\n" +
-                "    inner join MARK M2 on M2.ID = J.MARK_ID\n" +
-                "    inner join SUBJECT S2 on SP.SUBJECT_ID = S2.ID\n" +
-                "    inner join STUDY_GROUP SG on S.STUDY_GROUP_ID = SG.ID", this::mapJournal);
+        return jdbcTemplate.queryForList("select S.SURNAME, S.NAME, S.SECOND_NAME, J.COUNT, M.NAME as MARK, SG.NAME as GR, S2.NAME as SUBJECT, ET.TYPE from JOURNAL J\n" +
+                "       inner join STUDENT S on S.ID = J.STUDENT_ID\n" +
+                "       inner join STUDY_PLAN SP on SP.ID = J.STUDY_PLAN_ID\n" +
+                "       inner join EXAM_TYPE ET on ET.ID = SP.EXAM_TYPE_ID\n" +
+                "       inner join MARK M on M.ID = J.MARK_ID\n" +
+                "       inner join SUBJECT S2 on SP.SUBJECT_ID = S2.ID\n" +
+                "       inner join STUDY_GROUP SG on S.STUDY_GROUP_ID = SG.ID");
     }
 
     public List<Journal> getAllOnGroup(int id)

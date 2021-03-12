@@ -7,6 +7,12 @@ public class Journal {
     private int in_time;
     private int count;
     private int mark_id;
+    private String surname;
+    private String name;
+    private String second_name;
+    private String group;
+    private String subject;
+    private String type;
 
     public Journal(int id, int student_id, int study_plan_id, int in_time, int count, int mark_id){
         this.id = id;
