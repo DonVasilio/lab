@@ -47,6 +47,11 @@ public class StudentJdbc {
         jdbcTemplate.update("UPDATE STUDENT SET SURNAME = ?, NAME = ?, SECOND_NAME = ?, STUDY_GROUP_ID = ? Where ID = ?;", value.getSurname(), value.getName(), value.getSecond_name(), value.getStudy_group_id(), value.getId());
     }
 
+    public List<Student> getAllLocal()
+    {
+        return jdbcTemplate.query("SELECT * FROM student_local", this::mapStudent);
+    }
+
     private Student mapStudent(ResultSet rs, int i) throws SQLException {
         Student student = new Student(
                 rs.getInt("id"),
