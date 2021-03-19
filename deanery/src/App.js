@@ -12,7 +12,8 @@ class App extends Component {
       activeGroup: 1,
       students: null,
       subjectType:null,
-      wholeJournal:null
+      wholeJournal:null,
+      groups:null
     };
   }
 
@@ -26,6 +27,9 @@ class App extends Component {
     Request.getWholeJournal().then((wholeJournal) => {
       this.setState({wholeJournal: wholeJournal});
     });
+    Request.getAllGroup().then((groups) => {
+      this.setState({groups: groups});
+    });
   }
 
   render() {
@@ -34,21 +38,24 @@ class App extends Component {
           {this.state.students ? <JournalTable
               students={this.state.students}/> : null}
           <button onClick={() => {
-            Request.getStudentsOnGroup(1).then((students) => {
+            Request.getStudentsOnGroup(1).then((students, groups) => {
               this.setState({students: students});
               this.setState({activeGroup: 1});
+              this.setState({groups: groups});
             });
           }}>Группа 1</button>
           <button onClick={() => {
-            Request.getStudentsOnGroup(2).then((students) => {
+            Request.getStudentsOnGroup(2).then((students, groups) => {
               this.setState({students: students});
               this.setState({activeGroup: 2});
+              this.setState({groups: groups});
             });
           }}>Группа 2</button>
           <button onClick={() => {
             Request.getStudentsOnGroup(3).then((students) => {
               this.setState({students: students});
               this.setState({activeGroup: 3});
+              this.setState({groups: groups});
             });
           }}>Группа 3</button>
 
@@ -83,6 +90,12 @@ class JournalTable extends Component {
           <td>{student.surname}</td>
           <td>{student.second_name}</td>
           <td>{student.study_group_id}</td>
+          <td>
+            <DropDownMenu
+                groups = {this.props.groups}
+                studentId = {student.id}
+            />
+          </td>
         </tr>
       })}
       </tbody>
@@ -141,6 +154,27 @@ class WholeJournal extends Component {
       })}
       </tbody>
     </Table>
+  }
+}
+
+class DropDownMenu extends Component {
+  render() {
+    return (
+        <Dropdown>
+          <Dropdown.Toggle variant="link" size="sm">
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Header>Перевести в другую группу</Dropdown.Header>
+            {this.props.groups.map((groups) => (
+                <Dropdown.Item
+                    key={groups.id}
+                >
+                  {groups.name}
+                </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+    );
   }
 }
 

@@ -23,7 +23,7 @@ public class GroupController {
 
     @GetMapping("/group/show/all")
     public List<Group> getAllGroup(){
-        List<Group> groups = groupJdbc.getAll();
+        List<Group> groups = groupJdbc.getAllGroup();
         return groups;
     }
 

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="355eb985-8795-4868-ad95-ace27aa88ece" name="Default Changelist" comment="" />
+    <list default="true" id="355eb985-8795-4868-ad95-ace27aa88ece" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/controller/GroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/dao/GroupJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/dao/GroupJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/controller/GroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/controller/GroupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/dao/GroupJdbc.class" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/dao/GroupJdbc.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

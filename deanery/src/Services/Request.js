@@ -13,6 +13,10 @@ const Request = {
 
   getWholeJournal(){
     return fetch("http://localhost:8080/journal/whole").then(res => res.json());
+  },
+
+  getAllGroup(){
+    return fetch("http://localhost:8080/group/show/all").then(res => res.json());
   }
 };
 

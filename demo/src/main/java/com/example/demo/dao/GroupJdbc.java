@@ -22,7 +22,7 @@ public class GroupJdbc {
         return jdbcTemplate.queryForObject("SELECT * FROM STUDY_GROUP WHERE id = ?", this::mapGroup, id);
     }
 
-    public List<Group> getAll()
+    public List<Group> getAllGroup()
     {
         return jdbcTemplate.query("SELECT * FROM STUDY_GROUP", this::mapGroup);
     }
