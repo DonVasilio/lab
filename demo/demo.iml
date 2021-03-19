@@ -90,5 +90,8 @@
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:3.4.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.3" level="project" />
+    <orderEntry type="library" name="Maven: net.progruzovik.bus:bus-datasource-spring-jdbc:1.0-DEAN" level="project" />
+    <orderEntry type="library" name="Maven: net.progruzovik.bus:bus-core:1.0-DEAN" level="project" />
+    <orderEntry type="library" name="Maven: net.progruzovik.bus:bus-messaging-spring-rest:1.0-DEAN" level="project" />
   </component>
 </module>

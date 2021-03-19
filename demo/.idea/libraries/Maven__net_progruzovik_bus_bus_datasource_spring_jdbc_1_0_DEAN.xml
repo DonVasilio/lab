@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: net.progruzovik.bus:bus-datasource-spring-jdbc:1.0-DEAN">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/progruzovik/bus/bus-datasource-spring-jdbc/1.0-DEAN/bus-datasource-spring-jdbc-1.0-DEAN.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/net/progruzovik/bus/bus-datasource-spring-jdbc/1.0-DEAN/bus-datasource-spring-jdbc-1.0-DEAN-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/progruzovik/bus/bus-datasource-spring-jdbc/1.0-DEAN/bus-datasource-spring-jdbc-1.0-DEAN-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
