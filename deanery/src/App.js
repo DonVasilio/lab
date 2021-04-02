@@ -21,43 +21,46 @@ class App extends Component {
     Request.getStudentsOnGroup(this.state.activeGroup).then((students) => {
       this.setState({students: students});
     });
+    Request.getAllGroup().then((groups) => {
+      this.setState({groups: groups});
+    });
     Request.getTypeAndGroup().then((subjectType) => {
       this.setState({subjectType: subjectType});
     });
     Request.getWholeJournal().then((wholeJournal) => {
       this.setState({wholeJournal: wholeJournal});
     });
-    Request.getAllGroup().then((groups) => {
-      this.setState({groups: groups});
-    });
+
   }
 
   render() {
     return (
         <div className="App">
-          {this.state.students ? <JournalTable
-              students={this.state.students}/> : null}
+          {this.state.students && this.state.groups ? <JournalTable
+              students={this.state.students} groups={this.state.groups}/> : null}
           <button onClick={() => {
-            Request.getStudentsOnGroup(1).then((students, groups) => {
+            Request.getStudentsOnGroup(1).then((students) => {
               this.setState({students: students});
               this.setState({activeGroup: 1});
-              this.setState({groups: groups});
             });
           }}>Группа 1</button>
           <button onClick={() => {
-            Request.getStudentsOnGroup(2).then((students, groups) => {
+            Request.getStudentsOnGroup(2).then((students) => {
               this.setState({students: students});
               this.setState({activeGroup: 2});
-              this.setState({groups: groups});
             });
           }}>Группа 2</button>
           <button onClick={() => {
             Request.getStudentsOnGroup(3).then((students) => {
               this.setState({students: students});
               this.setState({activeGroup: 3});
-              this.setState({groups: groups});
             });
           }}>Группа 3</button>
+          <button onClick={() => {
+            Request.getStudentsOnGroupSorted(this.state.activeGroup).then((students) => {
+              this.setState({students: students});
+            });
+          }}>Отсортировать по фамилии</button>
 
           {this.state.subjectType ? <JournalForTypeAndSubject
               subjectType={this.state.subjectType}/> : null}
@@ -71,6 +74,7 @@ class App extends Component {
 }
 
 class JournalTable extends Component {
+
   render() {
     return <Table bordered>
       <thead>
@@ -86,15 +90,36 @@ class JournalTable extends Component {
       {this.props.students.map((student) => {
         return <tr>
           <td>{student.id}</td>
-          <td>{student.name}</td>
           <td>{student.surname}</td>
+          <td>{student.name}</td>
           <td>{student.second_name}</td>
           <td>{student.study_group_id}</td>
           <td>
-            <DropDownMenu
-                groups = {this.props.groups}
-                studentId = {student.id}
-            />
+            <Dropdown>
+              <Dropdown.Toggle variant="link" size="sm">
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Header>Перевести в другую группу</Dropdown.Header>
+                {
+                    this.props.groups.map((group) => {
+                      return(
+                          <Dropdown.Item key={student.study_group_id}
+                                         onClick={() => (
+                                             Request.updateStudent(student.id, group.id).then(() => {
+                                             alert('Перевод студента с id ' +
+                                                 student.id +
+                                                 ' в группу ' + group.id + ' произведён');
+                                             })
+                                         )}
+                          >
+                            {group.name}
+                          </Dropdown.Item>
+                          )
+                    })
+                }
+
+              </Dropdown.Menu>
+            </Dropdown>
           </td>
         </tr>
       })}
@@ -124,7 +149,7 @@ class JournalForTypeAndSubject extends Component {
   }
 }
 
-class WholeJournal extends Component {
+class WholeJournal extends Component{
   render() {
     return <Table bordered>
       <thead>
@@ -154,27 +179,6 @@ class WholeJournal extends Component {
       })}
       </tbody>
     </Table>
-  }
-}
-
-class DropDownMenu extends Component {
-  render() {
-    return (
-        <Dropdown>
-          <Dropdown.Toggle variant="link" size="sm">
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Header>Перевести в другую группу</Dropdown.Header>
-            {this.props.groups.map((groups) => (
-                <Dropdown.Item
-                    key={groups.id}
-                >
-                  {groups.name}
-                </Dropdown.Item>
-            ))}
-          </Dropdown.Menu>
-        </Dropdown>
-    );
   }
 }
 

@@ -47,6 +47,16 @@ public class StudentJdbc {
         jdbcTemplate.update("UPDATE STUDENT SET SURNAME = ?, NAME = ?, SECOND_NAME = ?, STUDY_GROUP_ID = ? Where ID = ?;", value.getSurname(), value.getName(), value.getSecond_name(), value.getStudy_group_id(), value.getId());
     }
 
+    public void updateStudentById(int ids, int idg)
+    {
+        jdbcTemplate.update("UPDATE STUDENT SET STUDY_GROUP_ID = ? Where ID = ?;", idg, ids);
+    }
+
+    public List<Student> getAllOnGroupSorted(int study_group_id)
+    {
+        return jdbcTemplate.query("SELECT * FROM STUDENT WHERE STUDY_GROUP_ID = ? order by SURNAME", this::mapStudent, study_group_id);
+    }
+
     private Student mapStudent(ResultSet rs, int i) throws SQLException {
         Student student = new Student(
                 rs.getInt("id"),

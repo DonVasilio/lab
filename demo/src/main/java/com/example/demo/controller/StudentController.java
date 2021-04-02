@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
 @CrossOrigin
+@RestController
 public class StudentController {
     private final StudentJdbc studentJdbc;
 
@@ -49,5 +49,16 @@ public class StudentController {
     public String updateStudent(@RequestBody Student student){
         studentJdbc.updateStudent(student);
         return "Выполнено";
+    }
+
+    @GetMapping("/student/update/id/{ids}/{idg}")
+    public void updateStudentById(@PathVariable int ids, @PathVariable int idg){
+        studentJdbc.updateStudentById(ids, idg);
+    }
+
+    @GetMapping("/student/show/group/sorted/{group}")
+    public List<Student> getAllOnGroupSorted(@PathVariable int group){
+        List<Student> students = studentJdbc.getAllOnGroupSorted(group);
+        return students;
     }
 }

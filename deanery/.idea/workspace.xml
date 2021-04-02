@@ -5,10 +5,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/controller/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/dao/GroupJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/dao/GroupJdbc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/controller/GroupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/controller/GroupController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/dao/GroupJdbc.class" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/dao/GroupJdbc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/dao/StudentJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/java/com/example/demo/dao/StudentJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/resources/static/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/controller/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/dao/StudentJdbc.class" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/dao/StudentJdbc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/target/classes/static/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/static/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/target/classes/static/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +21,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1pe90743bgWa9rHxfvfnCXmNuo5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -52,6 +64,12 @@
       <updated>1615532462432</updated>
       <workItem from="1615532465732" duration="7316000" />
       <workItem from="1615544191495" duration="1519000" />
+      <workItem from="1616528201571" duration="14000" />
+      <workItem from="1616596787750" duration="3511000" />
+      <workItem from="1616739071883" duration="12679000" />
+      <workItem from="1616753847562" duration="819000" />
+      <workItem from="1616799123552" duration="327000" />
+      <workItem from="1617343272548" duration="344000" />
     </task>
     <servers />
   </component>

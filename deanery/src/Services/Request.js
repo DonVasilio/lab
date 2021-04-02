@@ -17,6 +17,14 @@ const Request = {
 
   getAllGroup(){
     return fetch("http://localhost:8080/group/show/all").then(res => res.json());
+  },
+
+  updateStudent(ids, idg){
+    return fetch("http://localhost:8080/student/update/id/" + ids + "/" + idg);
+  },
+
+  getStudentsOnGroupSorted(group) {
+    return fetch("http://localhost:8080/student/show/group/sorted/" + group).then(res => res.json());
   }
 };
 
